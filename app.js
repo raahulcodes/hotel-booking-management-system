@@ -61,6 +61,14 @@ class HotelSystem
         return this.#bookingStatus;
     }
 
+    // creating a method for cancellation of bookings
+    cancelBooking()
+    {
+        if(this.#bookingStatus==="Waitlist")
+        {
+            this.#bookingStatus="Cancelled";
+        }
+    }
 }
 
 // 1. Creating multiple bookings
@@ -95,3 +103,12 @@ console.log(roomsDeluxe);
 // 6. Displaying the Confirmed bookings using filter() array method
 let confBookings = bookingsNew.filter(booking=>booking.bookConf==="Confirmed");
 console.log(confBookings);
+
+// 7. Cancelling a booking using forEach() array method in case booking status is waitlist
+bookingsNew.forEach(booking=>
+{
+    booking.cancelBooking();
+}
+)
+let cancelledBook = bookingsNew.filter(booking=>booking.bookConf==="Cancelled");
+console.log(cancelledBook);
