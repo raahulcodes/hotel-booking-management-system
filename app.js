@@ -42,6 +42,12 @@ class HotelSystem
     {   
         return this.#bookingId;
     }
+
+    // returning the required private field customerName outside the system class to be accessed using getter
+    get custNam()
+    {   
+        return this.#customerName;
+    }
 }
 
 // 1. Creating multiple bookings
@@ -61,5 +67,9 @@ bookings.forEach(booking=>
 let bookingsNew = [...bookings];
 
 // 3. Searching by Booking Id using filter() array method
-let searchBookId = bookingsNew.filter(id=>id.iD===1111);
+let searchBookId = bookingsNew.filter(id=>id.iD===1110);
 console.log(searchBookId);
+
+// 4. Searching by Customer Name using filter() array method
+let searchCustNam = bookingsNew.filter(id=>id.custNam==="Akshay Kumar");
+console.log(searchCustNam);
