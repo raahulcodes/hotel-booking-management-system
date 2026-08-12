@@ -24,6 +24,7 @@ class HotelSystem
         this.#servicesBooked = servicesBooked;
     }
 
+    // returning the required private fields outside the system class to be accessed using getter
     get fields()
     {
         return ` Booking Id: ${this.#bookingId},
@@ -36,6 +37,7 @@ class HotelSystem
                  Services Booked: ${this.#servicesBooked}`
     }
 
+    // returning the required private field ID outside the system class to be accessed using getter
     get iD()
     {   
         return this.#bookingId;
