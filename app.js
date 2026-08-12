@@ -30,7 +30,7 @@ class HotelSystem
         return ` Booking Id: ${this.#bookingId},
                  Customer Name: ${this.#customerName},
                  Customer Age: ${this.#customerAge},
-                 Room Category: ${this.roomType},
+                 Room Category: ${this.#roomType},
                  Nights to Stay: ${this.#nightsToStay}
                  Room Price: ${this.#priceOfRoom},
                  Booking Status: ${this.#bookingStatus},
