@@ -189,18 +189,9 @@ let expensiveRoomType = bookingsNew.reduce((expensive, booking)=>
 
 console.log("Expensive Room Category is: " + expensiveRoomType.roomCat);
 
-// 13. Finding the most cheapest room type per night
-let cheapestRoomType = bookingsNew.reduce((cheapest, booking)=>
+// 13. Sorting bookings by customer name
+let sortCustNames = bookingsNew.sort((sort, booking)=>
 {
-    if(cheapest.rmPrice<booking.rmPrice)
-    {
-        return cheapest;
-    }
-
-    else 
-    {
-        return booking  ;    
-    }
-}, booking1);
-
-console.log("Cheapest Room Category is: " + cheapestRoomType.roomCat);
+    return sort.custNam.localeCompare(booking.custNam)
+},{});
+console.log(sortCustNames);
