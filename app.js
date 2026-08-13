@@ -126,6 +126,14 @@ bookingsNew.forEach(booking=>
     // creating a totalAmtBooking inside the forEach() to display the totalAmount for each booking seperately 
     let totalAmtBooking = 0;
     totalAmtBooking += booking.bookPrice;
-    console.log("Total Booking Amount for this Booking" + totalAmtBooking);
+    console.log("Total Booking Amount for this Booking inclusive of 5% tax: र" + totalAmtBooking);
 }
 );
+
+// 9. Hotel's total expected revenue
+let hotelTotRev = bookingsNew.reduce((total, booking)=>
+{
+    return total + booking.bookPrice;
+}, 0);
+
+console.log("Total Expected Revenue: र" + hotelTotRev);
