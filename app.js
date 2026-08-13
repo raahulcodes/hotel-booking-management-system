@@ -193,5 +193,5 @@ console.log("Expensive Room Category is: " + expensiveRoomType.roomCat);
 let sortCustNames = bookingsNew.sort((sort, booking)=>
 {
     return sort.custNam.localeCompare(booking.custNam)
-},{});
+});
 console.log(sortCustNames);
