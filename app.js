@@ -61,6 +61,12 @@ class HotelSystem
         return this.#bookingStatus;
     }
 
+    // returning the required private field roomPrice outside the system class to be accessed using getter
+    get bookPrice()
+    {   
+        return (this.#priceOfRoom * 0.05) + this.#priceOfRoom;
+    }
+
     // creating a method for cancellation of bookings
     cancelBooking()
     {
@@ -110,5 +116,16 @@ bookingsNew.forEach(booking=>
     booking.cancelBooking();
 }
 )
+
 let cancelledBook = bookingsNew.filter(booking=>booking.bookConf==="Cancelled");
 console.log(cancelledBook);
+
+// 8. Total Amount for Each Booking
+bookingsNew.forEach(booking=>
+{
+    // creating a totalAmtBooking inside the forEach() to display the totalAmount for each booking seperately 
+    let totalAmtBooking = 0;
+    totalAmtBooking += booking.bookPrice;
+    console.log("Total Booking Amount for this Booking" + totalAmtBooking);
+}
+);
