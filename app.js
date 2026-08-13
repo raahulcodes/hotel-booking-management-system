@@ -195,3 +195,10 @@ let sortCustNames = bookingsNew.sort((sort, booking)=>
     return sort.custNam.localeCompare(booking.custNam)
 });
 console.log(sortCustNames);
+
+// 14. Sorting by total booking amount
+let sortBookAmt = bookingsNew.sort((sort,booking)=>
+{
+    return sort.bookPrice - booking.bookPrice;
+});
+console.log(sortBookAmt);
