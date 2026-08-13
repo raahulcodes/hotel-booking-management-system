@@ -87,8 +87,9 @@ class HotelSystem
 let booking1 = new HotelSystem(1110, "Hritik Roshan", 51, "Deluxe", 5, 6500, "Reserved", "Travel and Transport");
 let booking2 = new HotelSystem(1111, "Akshay Kumar", 56, "Super Deluxe", 2, 9500, "Waitlist", "Business");
 let booking3 = new HotelSystem(1112, "Abhijeet Sawant", 49, "Deluxe", 1, 6500, "Confirmed", "Travel and Transport");
+let booking4 = new HotelSystem(1112, "Rakesh Sharma", 34, "Deluxe", 3, 2500, "Confirmed", "Wellness and Care");
 
-bookings.push(booking1, booking2, booking3); //push method to produce objects in arrays for multiple bookings storage
+bookings.push(booking1, booking2, booking3, booking4); //push method to produce objects in arrays for multiple bookings storage
 
 // 2. displaying all the bookings using forEach() array method
 bookings.forEach(booking=>
@@ -157,3 +158,17 @@ let highestBookAmt = bookingsNew.reduce((highest, booking)=>
     }
 }, 0);
 console.log("Highest Booking price: र" + highestBookAmt);
+
+// 10. Finding the booking with lowest bookAmount
+let lowestBookAmt = bookingsNew.reduce((lowest, booking)=>
+{
+    if(lowest<booking.rmPrice)
+    {
+        return lowest;
+    }
+    else 
+    {
+        return booking.rmPrice;
+    }
+}, booking1.rmPrice);
+console.log("Lowest Booking price: र" + lowestBookAmt);
