@@ -61,10 +61,16 @@ class HotelSystem
         return this.#bookingStatus;
     }
 
-    // returning the required private field roomPrice outside the system class to be accessed using getter
+    // returning the required private field roomPrice after adding 5% gst outside the system class to be accessed using getter
     get bookPrice()
     {   
         return (this.#priceOfRoom * 0.05) + this.#priceOfRoom;
+    }
+
+    // returning the required private field roomPrice outside the system class to be accessed using getter
+    get rmPrice()
+    {   
+        return this.#priceOfRoom;
     }
 
     // creating a method for cancellation of bookings
@@ -137,3 +143,17 @@ let hotelTotRev = bookingsNew.reduce((total, booking)=>
 }, 0);
 
 console.log("Total Expected Revenue: र" + hotelTotRev);
+
+// 10. Finding the booking with highest bookAmount
+let highestBookAmt = bookingsNew.reduce((highest, booking)=>
+{
+    if(highest>booking.rmPrice)
+    {
+        return highest;
+    }
+    else 
+    {
+        return booking.rmPrice;
+    }
+}, 0);
+console.log("Highest Booking price: र" + highestBookAmt);
