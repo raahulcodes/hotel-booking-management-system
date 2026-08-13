@@ -87,7 +87,7 @@ class HotelSystem
 let booking1 = new HotelSystem(1110, "Hritik Roshan", 51, "Deluxe", 5, 6500, "Reserved", "Travel and Transport");
 let booking2 = new HotelSystem(1111, "Akshay Kumar", 56, "Super Deluxe", 2, 9500, "Waitlist", "Business");
 let booking3 = new HotelSystem(1112, "Abhijeet Sawant", 49, "Deluxe", 1, 6500, "Confirmed", "Travel and Transport");
-let booking4 = new HotelSystem(1112, "Rakesh Sharma", 34, "Deluxe", 3, 2500, "Confirmed", "Wellness and Care");
+let booking4 = new HotelSystem(1112, "Rakesh Sharma", 34, "Normal", 3, 2500, "Confirmed", "Wellness and Care");
 
 bookings.push(booking1, booking2, booking3, booking4); //push method to produce objects in arrays for multiple bookings storage
 
@@ -159,7 +159,7 @@ let highestBookAmt = bookingsNew.reduce((highest, booking)=>
 }, 0);
 console.log("Highest Booking price: र" + highestBookAmt);
 
-// 10. Finding the booking with lowest bookAmount
+// 11. Finding the booking with lowest bookAmount
 let lowestBookAmt = bookingsNew.reduce((lowest, booking)=>
 {
     if(lowest<booking.rmPrice)
@@ -172,3 +172,35 @@ let lowestBookAmt = bookingsNew.reduce((lowest, booking)=>
     }
 }, booking1.rmPrice);
 console.log("Lowest Booking price: र" + lowestBookAmt);
+
+// 12. Finding the most expensive room type per night
+let expensiveRoomType = bookingsNew.reduce((expensive, booking)=>
+{
+    if(expensive.rmPrice>booking.rmPrice)
+    {
+        return expensive;
+    }
+
+    else 
+    {
+        return booking  ;    
+    }
+}, booking1);
+
+console.log("Expensive Room Category is: " + expensiveRoomType.roomCat);
+
+// 13. Finding the most cheapest room type per night
+let cheapestRoomType = bookingsNew.reduce((cheapest, booking)=>
+{
+    if(cheapest.rmPrice<booking.rmPrice)
+    {
+        return cheapest;
+    }
+
+    else 
+    {
+        return booking  ;    
+    }
+}, booking1);
+
+console.log("Cheapest Room Category is: " + cheapestRoomType.roomCat);
