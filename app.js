@@ -81,6 +81,12 @@ class HotelSystem
             this.#bookingStatus="Cancelled";
         }
     }
+
+    // returning the required private field customeAge outside the system class to be accessed using getter
+    get custAge()
+    {   
+        return this.#customerAge;
+    }
 }
 
 // 1. Creating multiple bookings
@@ -127,7 +133,7 @@ bookingsNew.forEach(booking=>
 let cancelledBook = bookingsNew.filter(booking=>booking.bookConf==="Cancelled");
 console.log(cancelledBook);
 
-// 8. Total Amount for Each Booking
+// 8. Total Amount for Each Booking using the forEach() array method
 bookingsNew.forEach(booking=>
 {
     // creating a totalAmtBooking inside the forEach() to display the totalAmount for each booking seperately 
@@ -137,7 +143,7 @@ bookingsNew.forEach(booking=>
 }
 );
 
-// 9. Hotel's total expected revenue
+// 9. Hotel's total expected revenue using the reduce() array method
 let hotelTotRev = bookingsNew.reduce((total, booking)=>
 {
     return total + booking.bookPrice;
@@ -145,7 +151,7 @@ let hotelTotRev = bookingsNew.reduce((total, booking)=>
 
 console.log("Total Expected Revenue: र" + hotelTotRev);
 
-// 10. Finding the booking with highest bookAmount
+// 10. Finding the booking with highest bookAmount using the reduce() array method
 let highestBookAmt = bookingsNew.reduce((highest, booking)=>
 {
     if(highest>booking.rmPrice)
@@ -159,7 +165,7 @@ let highestBookAmt = bookingsNew.reduce((highest, booking)=>
 }, 0);
 console.log("Highest Booking price: र" + highestBookAmt);
 
-// 11. Finding the booking with lowest bookAmount
+// 11. Finding the booking with lowest bookAmount using the reduce() array method
 let lowestBookAmt = bookingsNew.reduce((lowest, booking)=>
 {
     if(lowest<booking.rmPrice)
@@ -173,7 +179,7 @@ let lowestBookAmt = bookingsNew.reduce((lowest, booking)=>
 }, booking1.rmPrice);
 console.log("Lowest Booking price: र" + lowestBookAmt);
 
-// 12. Finding the most expensive room type per night
+// 12. Finding the most expensive room type per night using the reduce() array method
 let expensiveRoomType = bookingsNew.reduce((expensive, booking)=>
 {
     if(expensive.rmPrice>booking.rmPrice)
@@ -189,16 +195,38 @@ let expensiveRoomType = bookingsNew.reduce((expensive, booking)=>
 
 console.log("Expensive Room Category is: " + expensiveRoomType.roomCat);
 
-// 13. Sorting bookings by customer name
+// 13. Sorting bookings by customer name using the sort() array method
 let sortCustNames = bookingsNew.sort((sort, booking)=>
 {
     return sort.custNam.localeCompare(booking.custNam)
 });
 console.log(sortCustNames);
 
-// 14. Sorting by total booking amount
+// 14. Sorting by total booking amount using the sort() array method
 let sortBookAmt = bookingsNew.sort((sort,booking)=>
 {
     return sort.bookPrice - booking.bookPrice;
 });
 console.log(sortBookAmt);
+
+// 15. Checking if any booking is cancelled using the some() array method
+let cancelledBooking = bookingsNew.some(booking=>booking.bookConf==="Cancelled");
+if(cancelledBooking)
+{
+    console.log("There is atleast one cancelled booking");
+}
+else
+{
+    console.log("There is no cancelled booking");
+}
+
+// 16. checking if ages are greater than 18 using the every() array method
+let checkCustAge = bookingsNew.every(booking=>booking.custAge>18);
+if(checkCustAge)
+{
+    console.log("All Bookings have valid Age.");
+}
+else 
+{
+    console.log("Some Bookings don't have valid Age.");
+}
