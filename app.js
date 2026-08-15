@@ -87,6 +87,12 @@ class HotelSystem
     {   
         return this.#customerAge;
     }
+
+    // returning the required private field custServices outside the system class to be accessed using getter
+    get custServ()
+    {   
+        return this.#servicesBooked;
+    } 
 }
 
 // 1. Creating multiple bookings
@@ -246,3 +252,12 @@ lastBooking.forEach(booking=>
     console.log(booking.fields);
 }
 )
+
+// 19. A seperate list displaying the services bookied across all bookings
+let servCustBook = [];
+bookingsNew.forEach(booking=>
+{
+    servCustBook.push(booking.custServ);
+}
+)
+console.log(servCustBook);
