@@ -254,10 +254,5 @@ lastBooking.forEach(booking=>
 )
 
 // 19. A seperate list displaying the services bookied across all bookings
-let servCustBook = [];
-bookingsNew.forEach(booking=>
-{
-    servCustBook.push(booking.custServ);
-}
-)
-console.log(servCustBook);
+let servicesBooked = bookingsNew.flatMap(booking=>booking.custServ);
+console.log(servicesBooked);
