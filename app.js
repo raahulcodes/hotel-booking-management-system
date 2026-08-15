@@ -256,3 +256,20 @@ lastBooking.forEach(booking=>
 // 19. A seperate list displaying the services bookied across all bookings
 let servicesBooked = bookingsNew.flatMap(booking=>booking.custServ);
 console.log(servicesBooked);
+
+// creating a method for a private class using the prototype keyword
+HotelSystem.prototype.generateHotelBook = function()
+{
+    return ` ---------Hotel Total Bookings Overview-------
+    Total Bookings: ${bookingsNew.length}
+    Confirmed Bookings: ${confBookings.length}
+    Cancelled Bookings: ${cancelledBook.length}
+    Total Revenue: ${hotelTotRev}
+    Highest Booking: ${highestBookAmt}
+    Lowest Booking: ${lowestBookAmt}
+    All Available Services: ${servicesBooked}
+    `;
+}
+
+// 20. Gnenerating a final Hotel Booking Report
+console.log(booking1.generateHotelBook());
